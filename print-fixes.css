@@ -1,0 +1,75 @@
+@page {
+  margin: 12mm;
+}
+
+@media print {
+  body:not(.week-page) {
+    background: #fff !important;
+  }
+
+  body:not(.week-page) .site-header,
+  body:not(.week-page) .hero,
+  body:not(.week-page) main > .content-grid,
+  body:not(.week-page) main > #weeks,
+  body:not(.week-page) main > #faq,
+  body:not(.week-page) .calculator-panel,
+  body:not(.week-page) .report-actions,
+  body:not(.week-page) .toast {
+    display: none !important;
+  }
+
+  body:not(.week-page) main {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  body:not(.week-page) .layout {
+    display: block !important;
+  }
+
+  body:not(.week-page) .layout > section {
+    display: block !important;
+  }
+
+  body:not(.week-page) .report-card,
+  body:not(.week-page) .content-card {
+    box-shadow: none !important;
+    border-color: #cfd6dc !important;
+    break-inside: avoid;
+  }
+
+  body:not(.week-page) .result-hero {
+    color: #111 !important;
+    background: #fff !important;
+    border-bottom: 1px solid #cfd6dc;
+  }
+
+  body:not(.week-page) .date {
+    font-size: 34pt !important;
+  }
+
+  body:not(.week-page) .report-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  body:not(.week-page) .chart {
+    height: 110px !important;
+  }
+
+  body.week-page .site-header,
+  body.week-page .hero-actions {
+    display: none !important;
+  }
+
+  body.week-page main {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  body.week-page .visual-card {
+    max-height: 240px;
+    overflow: hidden;
+    box-shadow: none !important;
+  }
+}

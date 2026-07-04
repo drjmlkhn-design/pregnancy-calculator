@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pregnancy Due Date Calculator: LMP, IVF, Conception &amp; Ultrasound</title>
+  <meta name="description" content="Free pregnancy due date calculator with weekly fetal development, baby size comparisons, trimester guide, prenatal tests, weight gain range, printable report, and shareable results.">
+  <meta name="keywords" content="pregnancy due date calculator, pregnancy week calculator, fetal development, IVF due date, ultrasound dating, pregnancy timeline">
+  <link rel="canonical" href="https://example.com/pregnancy-due-date-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pregnancy Due Date Calculator: LMP, IVF, Conception &amp; Ultrasound">
+  <meta property="og:description" content="Free pregnancy due date calculator with weekly fetal development, baby size comparisons, trimester guide, prenatal tests, weight gain range, printable report, and shareable results.">
+  <meta property="og:url" content="https://example.com/pregnancy-due-date-calculator/">
+  <meta property="og:image" content="https://example.com/assets/pregnancy-calculator-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pregnancy Due Date Calculator: LMP, IVF, Conception &amp; Ultrasound">
+  <meta name="twitter:description" content="Free pregnancy due date calculator with weekly fetal development, baby size comparisons, trimester guide, prenatal tests, weight gain range, printable report, and shareable results.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="print-fixes.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MedicalWebPage","name":"Pregnancy Due Date Calculator","description":"Estimate pregnancy due date, fetal development, baby size, pregnancy timeline, prenatal tests, and report details.","medicalAudience":"Patient","about":{"@type":"MedicalCondition","name":"Pregnancy"}},{"@type":"SoftwareApplication","name":"Pregnancy Due Date Calculator","applicationCategory":"HealthApplication","operatingSystem":"Web browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is a pregnancy due date?","acceptedAnswer":{"@type":"Answer","text":"A due date is an estimate. Early ultrasound and clinician review may adjust pregnancy dating."}},{"@type":"Question","name":"Can IVF transfer dates calculate a due date?","acceptedAnswer":{"@type":"Answer","text":"Yes. IVF due dates are commonly calculated from transfer date and embryo age, but clinic records should be followed."}},{"@type":"Question","name":"What is Naegele's Rule?","acceptedAnswer":{"@type":"Answer","text":"Naegele's Rule estimates the due date as 280 days after the first day of the last menstrual period for a 28-day cycle."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/"},{"@type":"ListItem","position":2,"name":"Pregnancy Due Date Calculator","item":"https://example.com/pregnancy-due-date-calculator/"}]}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="pregnancy-due-date-calculator.html">Pregnancy Planner</a>
+    <nav aria-label="Primary">
+      <a href="#calculator">Calculator</a>
+      <a href="#guide">Guide</a>
+      <a href="#weeks">Week by week</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="icon-btn" type="button" id="themeButton" title="Toggle dark mode">☾</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Pregnancy tools and week-by-week guidance</p>
+        <h1>Pregnancy Due Date Calculator</h1>
+        <p class="lede">Calculate an estimated due date from your last period, conception date, ultrasound dating, or IVF transfer. Then get a personalized pregnancy report with current week, trimester, baby size, important dates, prenatal test windows, and practical planning tips.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#calculator">Calculate due date</a>
+          <a class="button" href="#weeks">Browse week pages</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true"><svg class="baby-art" viewBox="0 0 220 170" role="img" aria-label="Illustration for pregnancy week 20, baby size anatomy scan window">
+    <rect width="220" height="170" rx="18" fill="currentColor" opacity=".06"></rect>
+    <ellipse cx="108" cy="86" rx="78" ry="60" fill="none" stroke="currentColor" stroke-width="8" opacity=".2"></ellipse>
+    <circle cx="108" cy="86" r="27.5" fill="hsl(290 68% 72%)"></circle>
+    <circle cx="102" cy="76.33333333333333" r="7.857142857142857" fill="hsl(290 62% 64%)" opacity=".9"></circle>
+    <path d="M93 92.66666666666667 C 118 118, 140 111, 143 84" fill="none" stroke="hsl(290 50% 52%)" stroke-width="7" stroke-linecap="round" opacity=".75"></path>
+    <text x="110" y="150" text-anchor="middle" font-size="13" fill="currentColor" opacity=".75">Week 20 · anatomy scan window</text>
+  </svg></div>
+    </section>
+
+    <section class="layout" id="calculator">
+      <form class="panel calculator-panel">
+        <div class="method-tabs" role="tablist" aria-label="Dating method">
+          <button class="tab" type="button" data-method="lmp" aria-selected="true">Last period</button>
+          <button class="tab" type="button" data-method="conception" aria-selected="false">Conception</button>
+          <button class="tab" type="button" data-method="ultrasound" aria-selected="false">Ultrasound</button>
+          <button class="tab" type="button" data-method="ivf" aria-selected="false">IVF transfer</button>
+        </div>
+        <input type="hidden" id="method" value="lmp">
+
+        <div class="method-pane" data-pane="lmp">
+          <label for="lmpDate">First day of last menstrual period</label>
+          <input id="lmpDate" type="date">
+          <label for="cycleLength">Average cycle length</label>
+          <select id="cycleLength"></select>
+          <label class="check"><input id="irregularCycle" type="checkbox"> Irregular cycles</label>
+        </div>
+
+        <div class="method-pane hidden" data-pane="conception">
+          <label for="conceptionDate">Estimated conception date</label>
+          <input id="conceptionDate" type="date">
+        </div>
+
+        <div class="method-pane hidden" data-pane="ultrasound">
+          <label for="scanDate">Ultrasound date</label>
+          <input id="scanDate" type="date">
+          <div class="two">
+            <div><label for="scanWeeks">Gestational age, weeks</label><input id="scanWeeks" type="number" min="4" max="42" value="8"></div>
+            <div><label for="scanDays">Extra days</label><input id="scanDays" type="number" min="0" max="6" value="0"></div>
+          </div>
+        </div>
+
+        <div class="method-pane hidden" data-pane="ivf">
+          <label for="transferDate">Embryo transfer date</label>
+          <input id="transferDate" type="date">
+          <label for="embryoAge">Embryo age at transfer</label>
+          <select id="embryoAge"><option value="3">Day 3 embryo</option><option value="5" selected>Day 5 blastocyst</option><option value="6">Day 6 blastocyst</option></select>
+        </div>
+
+        <div class="two">
+          <div><label for="region">Localization</label><select id="region"><option value="us">United States</option><option value="uk">United Kingdom</option><option value="india">India</option><option value="canada">Canada</option><option value="australia">Australia</option><option value="europe">Europe</option></select></div>
+          <div><label for="pregnancyType">Pregnancy type</label><select id="pregnancyType"><option value="singleton">Singleton</option><option value="twins">Twins</option></select></div>
+        </div>
+        <div class="two">
+          <div><label for="age">Age</label><input id="age" type="number" min="13" max="60" value="30"></div>
+          <div><label for="bmiCategory">BMI category</label><select id="bmiCategory"><option value="under">Underweight</option><option value="normal" selected>Normal</option><option value="over">Overweight</option><option value="obese">Obese</option></select></div>
+        </div>
+        <div class="two">
+          <div><label for="height">Height</label><input id="height" type="number" min="120" max="220" placeholder="cm or in"></div>
+          <div><label for="weight">Pre-pregnancy weight</label><input id="weight" type="number" min="35" max="400" placeholder="kg or lb"></div>
+        </div>
+        <label class="check"><input id="previousCsection" type="checkbox"> Previous C-section</label>
+        <label class="check"><input id="highRisk" type="checkbox"> High-risk pregnancy or specialist care</label>
+        <div class="actions">
+          <button class="button primary" type="submit">Calculate</button>
+          <button class="button" type="button" id="todayButton">Use today</button>
+        </div>
+        <p class="note">This educational calculator does not replace prenatal care. Confirm dates, testing, symptoms, medications, and weight targets with a qualified clinician.</p>
+      </form>
+      <section>
+        <div class="report-card" id="report" aria-live="polite"></div>
+        <div class="report-actions">
+          <button class="button" type="button" id="printButton">Printable report</button>
+          <button class="button" type="button" id="shareButton">Share results</button>
+          <button class="button" type="button" id="emailButton">Email my results</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="content-grid" id="guide">
+      <article class="content-card wide"><h2>What is Pregnancy Due Date?</h2><p>A pregnancy due date is the estimated day a baby may be born. It is usually set at 40 weeks of gestational age, counted from the first day of the last menstrual period. The due date is useful for planning prenatal visits, screening windows, fetal growth checks, and birth preparation, but it is not a guarantee. Many healthy pregnancies deliver before or after the exact date.</p></article>
+      <article class="content-card"><h2>How is Due Date Calculated?</h2><p>The most common approach starts with the last menstrual period and adds 280 days. If cycles are longer or shorter than 28 days, the estimate may shift. Conception-based dating adds 266 days to the estimated conception date. IVF dating uses transfer date and embryo age. Ultrasound dating estimates gestational age from fetal measurements.</p></article>
+      <article class="content-card"><h2>Naegele's Rule</h2><p>Naegele's Rule estimates the due date by adding one year, subtracting three months, and adding seven days to the first day of the last period. This is similar to adding 280 days. It assumes a 28-day cycle and ovulation around day 14, so it is less precise for irregular cycles.</p></article>
+      <article class="content-card"><h2>IVF Due Date</h2><p>IVF dating can be more precise because fertilization and transfer timing are known. A day 5 embryo transfer usually has a different calculation than a day 3 transfer. Fertility clinic records should be treated as the source of truth.</p></article>
+      <article class="content-card"><h2>Ultrasound Dating</h2><p>Early ultrasound can help confirm or adjust pregnancy dating, especially when cycle dates are uncertain. Later ultrasound is often more useful for growth assessment than for changing the official due date.</p></article>
+      <article class="content-card"><h2>Pregnancy Timeline</h2><p>Pregnancy is commonly divided into three trimesters. The first trimester focuses on early development and initial screening. The second trimester includes rapid growth and the anatomy scan. The third trimester focuses on growth, movement awareness, delivery planning, and late-pregnancy testing.</p></article>
+      <article class="content-card"><h2>First Trimester</h2><p>Weeks 1-13 bring major organ formation, hormonal changes, nausea, fatigue, breast tenderness, and first prenatal labs. This is also when many people discuss genetic screening options.</p></article>
+      <article class="content-card"><h2>Second Trimester</h2><p>Weeks 14-27 often feel more stable for many people. The baby grows quickly, movement may become noticeable, and the anatomy scan usually occurs around weeks 18-22.</p></article>
+      <article class="content-card"><h2>Third Trimester</h2><p>Weeks 28-birth include stronger movement patterns, birth planning, glucose follow-up if needed, Tdap timing, group B strep screening, and discussions about labor signs.</p></article>
+      <article class="content-card"><h2>Common Symptoms</h2><p>Symptoms can include nausea, fatigue, bloating, breast changes, heartburn, backache, leg cramps, sleep changes, and Braxton Hicks contractions. Call your care team for severe pain, heavy bleeding, fluid leakage, severe headache, vision changes, fever, or decreased fetal movement later in pregnancy.</p></article>
+      <article class="content-card"><h2>Nutrition</h2><p>A balanced pregnancy diet often includes protein, whole grains, fruits, vegetables, iron-rich foods, calcium, iodine, choline, and omega-3 sources. Food safety matters: ask your clinician about local guidance for fish, caffeine, unpasteurized foods, and supplements.</p></article>
+      <article class="content-card"><h2>Exercise</h2><p>Many uncomplicated pregnancies can include regular moderate activity, such as walking, swimming, prenatal yoga, or strength work. People with high-risk pregnancies, pain, bleeding, or activity restrictions should follow individualized medical guidance.</p></article>
+    </section>
+
+    <section class="panel" id="weeks">
+      <h2>Pregnancy Week by Week</h2>
+      <p class="muted">Explore dedicated week pages with fetal development, symptoms, prenatal tests, nutrition, warning signs, and baby size illustrations.</p>
+      <div class="week-links"><a href="weeks/pregnancy-week-1.html">Week 1</a><a href="weeks/pregnancy-week-2.html">Week 2</a><a href="weeks/pregnancy-week-3.html">Week 3</a><a href="weeks/pregnancy-week-4.html">Week 4</a><a href="weeks/pregnancy-week-5.html">Week 5</a><a href="weeks/pregnancy-week-6.html">Week 6</a><a href="weeks/pregnancy-week-7.html">Week 7</a><a href="weeks/pregnancy-week-8.html">Week 8</a><a href="weeks/pregnancy-week-9.html">Week 9</a><a href="weeks/pregnancy-week-10.html">Week 10</a><a href="weeks/pregnancy-week-11.html">Week 11</a><a href="weeks/pregnancy-week-12.html">Week 12</a><a href="weeks/pregnancy-week-13.html">Week 13</a><a href="weeks/pregnancy-week-14.html">Week 14</a><a href="weeks/pregnancy-week-15.html">Week 15</a><a href="weeks/pregnancy-week-16.html">Week 16</a><a href="weeks/pregnancy-week-17.html">Week 17</a><a href="weeks/pregnancy-week-18.html">Week 18</a><a href="weeks/pregnancy-week-19.html">Week 19</a><a href="weeks/pregnancy-week-20.html">Week 20</a><a href="weeks/pregnancy-week-21.html">Week 21</a><a href="weeks/pregnancy-week-22.html">Week 22</a><a href="weeks/pregnancy-week-23.html">Week 23</a><a href="weeks/pregnancy-week-24.html">Week 24</a><a href="weeks/pregnancy-week-25.html">Week 25</a><a href="weeks/pregnancy-week-26.html">Week 26</a><a href="weeks/pregnancy-week-27.html">Week 27</a><a href="weeks/pregnancy-week-28.html">Week 28</a><a href="weeks/pregnancy-week-29.html">Week 29</a><a href="weeks/pregnancy-week-30.html">Week 30</a><a href="weeks/pregnancy-week-31.html">Week 31</a><a href="weeks/pregnancy-week-32.html">Week 32</a><a href="weeks/pregnancy-week-33.html">Week 33</a><a href="weeks/pregnancy-week-34.html">Week 34</a><a href="weeks/pregnancy-week-35.html">Week 35</a><a href="weeks/pregnancy-week-36.html">Week 36</a><a href="weeks/pregnancy-week-37.html">Week 37</a><a href="weeks/pregnancy-week-38.html">Week 38</a><a href="weeks/pregnancy-week-39.html">Week 39</a><a href="weeks/pregnancy-week-40.html">Week 40</a><a href="weeks/pregnancy-week-41.html">Week 41</a><a href="weeks/pregnancy-week-42.html">Week 42</a></div>
+    </section>
+
+    <section class="content-grid">
+      <article class="content-card wide"><h2>Related Calculators</h2><div class="related"><a href="#">Pregnancy Weight Calculator</a><a href="#">Ovulation Calculator</a><a href="#">Conception Calculator</a><a href="#">BMI Calculator</a><a href="#">Pregnancy Week Calculator</a><a href="#">Due Date by IVF</a><a href="#">Baby Name Generator</a></div></article>
+      <article class="content-card wide"><h2>Pregnancy Safety & Food Guide</h2><p class="muted">Quick educational answers for common pregnancy food and safety questions. For symptoms, medicines, high-risk pregnancy, or urgent concerns, contact a qualified healthcare professional.</p><div class="content-grid"><div><h3>Common foods</h3><ul class="list"><li>Apples, bananas, oranges, mangoes, and most fresh fruits are commonly safe when washed well.</li><li>Pineapple is commonly eaten during pregnancy in normal food portions.</li><li>Ripe papaya is commonly eaten in many places; unripe or semi-ripe papaya is often avoided.</li><li>Limit caffeine according to your clinician or local guideline, counting coffee, tea, cola, and energy drinks together.</li></ul></div><div><h3>Call your care team</h3><ul class="list"><li>Heavy bleeding, severe pain, fever, fainting, or fluid leakage.</li><li>Severe headache, vision changes, chest pain, or shortness of breath.</li><li>Decreased fetal movement later in pregnancy.</li><li>Any medicine, supplement, or high-risk pregnancy question.</li></ul></div></div></article>
+      <article class="content-card wide"><h2>Weekly pregnancy emails</h2><p class="muted">Enter an email to send or preview weekly baby growth, tips, test reminders, and nutrition notes. Configure EmailJS for real browser-based sending, or use the safe mail app fallback.</p><div class="assistant-box"><input id="weeklyEmail" type="email" placeholder="Email address"><button class="button" id="weeklyButton" type="button">Join weekly updates</button></div><p id="weeklyStatus" class="muted"></p><details><summary>Email delivery settings</summary><div class="two"><div><label for="emailPublicKey">EmailJS public key</label><input id="emailPublicKey" placeholder="public key"></div><div><label for="emailServiceId">Service ID</label><input id="emailServiceId" placeholder="service_xxxxx"></div></div><label for="emailTemplateId">Template ID</label><input id="emailTemplateId" placeholder="template_xxxxx"><button class="button" id="saveEmailConfig" type="button">Save email config</button><p class="muted">Your EmailJS template should accept: to_email, subject, message, pregnancy_week, and due_date.</p></details></article>
+    </section>
+
+    <section class="panel" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details open><summary>How accurate is this pregnancy due date calculator?</summary><p>It gives an estimate based on the dates you enter. A clinician may adjust the official due date using early ultrasound, fertility records, cycle history, or medical context.</p></details>
+      <details><summary>What if my cycle is irregular?</summary><p>LMP dating can be less reliable when cycles are irregular. Ultrasound or fertility-treatment dating may be more useful.</p></details>
+      <details><summary>Can I email my results?</summary><p>Yes. The email button opens your email app with a formatted report. A production website can connect this to EmailJS, SendGrid, or Resend for automated branded emails after proper consent and privacy controls.</p></details>
+      <details><summary>Does this replace medical advice?</summary><p>No. This website is educational and should not be used to diagnose, treat, or make urgent medical decisions.</p></details>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="email-signup.js"></script>
+</body>
+</html>
