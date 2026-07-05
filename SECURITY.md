@@ -2,20 +2,52 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+The latest version of the Pregnancy Due Date Calculator is actively maintained and supported.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version | Supported |
+| ------- | --------- |
+| Latest  | ✅ Yes |
+| Older versions | ❌ No |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability in this project, please report it responsibly.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+### Contact
+
+- GitHub Issues (for non-sensitive issues):
+  https://github.com/drjmlkhn-design/pregnancy-calculator/issues
+
+- For sensitive security reports, please contact:
+  **drjmlkhn.design@gmail.com**
+
+### What to Include
+
+Please include:
+
+- Description of the vulnerability
+- Steps to reproduce
+- Affected page or file
+- Browser and operating system
+- Screenshots or proof of concept (if available)
+
+### Response Timeline
+
+- Initial acknowledgment: Within **3 business days**
+- Status update: Within **7 business days**
+- Fix release: As soon as reasonably possible, depending on severity.
+
+## Scope
+
+This project is a client-side pregnancy due date calculator hosted on GitHub Pages.
+
+Examples of valid security reports include:
+
+- Cross-Site Scripting (XSS)
+- HTML/JavaScript injection
+- Sensitive information exposure
+- Authentication or authorization issues (if introduced in future versions)
+
+Reports about medical accuracy, feature requests, or UI improvements should be submitted as GitHub Issues instead of security reports.
+
+Thank you for helping keep this project secure.
