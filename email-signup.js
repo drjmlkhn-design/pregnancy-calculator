@@ -101,7 +101,7 @@
 
     const subject = encodeURIComponent("Weekly pregnancy updates signup");
     const body = encodeURIComponent(`Please subscribe ${value} to weekly pregnancy updates.\n\nPregnancy week: ${context.week}\nDue date: ${context.dueDate}\n\nFor automatic delivery, configure EmailJS or a backend email service.`);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`; window.open(gmailUrl, "_blank");
   }
 
   hydrateEmailConfig();
