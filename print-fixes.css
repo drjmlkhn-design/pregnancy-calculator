@@ -164,3 +164,11 @@
     text-decoration: none !important;
   }
 }
+@media print {
+  body:not(.week-page) .content-card:has(.chart),
+  body:not(.week-page) .chart-wrap,
+  body:not(.week-page) .chart,
+  body:not(.week-page) svg.chart {
+    display: none !important;
+  }
+}
