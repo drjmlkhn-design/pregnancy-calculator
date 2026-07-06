@@ -100,14 +100,37 @@
     }
 
     const subject = encodeURIComponent("Weekly pregnancy updates signup");
-    const body = encodeURIComponent(`Please subscribe ${value} to weekly pregnancy updates.\n\nPregnancy week: ${context.week}\nDue date: ${context.dueDate}\n\nFor automatic delivery, configure EmailJS or a backend email service.`);
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`; window.open(gmailUrl, "_blank");
-  }
+    const body = encodeURIComponent(
+      `Please subscribe ${value} to weekly pregnancy updates.\n\n` +
+      `Pregnancy week: ${context.week}\n` +
+      `Due date: ${context.dueDate}\n\n` +
+      `For automatic delivery, configure EmailJS or a backend email service.`
+    );
+
+    const gmailUrl =
+      `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&body=${body}`;
+
+    const mailtoUrl =
+      `mailto:?subject=${subject}&body=${body}`;
+
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      window.location.href = mailtoUrl;
+    } else {
+      window.open(gmailUrl, "_blank");
+    }
+
+  } // <-- submitWeeklySignup ends here
 
   hydrateEmailConfig();
+
   $("#saveEmailConfig")?.addEventListener("click", saveEmailConfig);
+
   $("#weeklyButton")?.addEventListener("click", submitWeeklySignup, true);
+
   $("#weeklyEmail")?.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") submitWeeklySignup(event);
+    if (event.key === "Enter") {
+      submitWeeklySignup(event);
+    }
   }, true);
+
 })();
